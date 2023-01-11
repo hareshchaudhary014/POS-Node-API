@@ -44,3 +44,9 @@ app.listen(process.env.PORT, () => {
 })
 const authentication = require('./routes/authentication')
 app.use(authentication)
+
+const categories = require('./routes/category')
+app.use(categories)
+
+const brands = require('./routes/brand')
+app.use(brands)
