@@ -50,3 +50,6 @@ app.use(categories)
 
 const brands = require('./routes/brand')
 app.use(brands)
+
+const stocks = require('./routes/stock')
+app.use(stocks)

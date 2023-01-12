@@ -1,5 +1,6 @@
 const db = require("../connection");
 const slug = require("slug");
+
 require("dotenv").config();
 
 module.exports.addBrand = (req, res) => {
@@ -60,12 +61,12 @@ module.exports.getBrandById = (req, res) => {
 }
 
 module.exports.updateBrand = (req, res) => {
-    const { id } = req.params;
+    const { slug } = req.params;
     let data = {
         title: req.body.title
     }
-    const query = `UPDATE brands SET ? WHERE id=?`;
-    db.query(query, [data, id], (err, result) => {
+    const query = `UPDATE brands SET ? WHERE slug=?`;
+    db.query(query, [data, slug], (err, result) => {
         if (result) {
             // sending success response
             res.status(200).json({ message: "Data Updated Successfully" });

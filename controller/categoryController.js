@@ -60,12 +60,12 @@ module.exports.getCategoryById = (req, res) => {
 };
 
 module.exports.updateCategory = (req, res) => {
-  const { id } = req.params;
+  const { slug } = req.params;
   let data = {
     title: req.body.title,
   };
-  const query = `UPDATE categories SET ? WHERE id=?`;
-  db.query(query, [data, id], (err, result) => {
+  const query = `UPDATE categories SET ? WHERE slug=?`;
+  db.query(query, [data, slug], (err, result) => {
     if (result) {
       // sending success response
       res.status(200).json({ message: "Data Updated Successfully" });
